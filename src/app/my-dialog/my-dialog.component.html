@@ -1,0 +1,26 @@
+<!-- src/app/my-dialog/my-dialog.component.html -->
+<h2 mat-dialog-title>{{ dialogTitle }}</h2>
+<mat-dialog-content>
+    <p><strong>Received Message from Parent:</strong> {{ receivedMessage }}</p>
+    <p><strong>Current Count:</strong> {{ currentCount }}</p>
+    <p><strong>Current Status:</strong> {{ currentStatus }}</p>
+    <p><strong>Last Action Triggered by Parent:</strong> {{ lastActionTriggered }}</p>
+
+    <mat-divider></mat-divider>
+
+    <h3>Dialog Controls</h3>
+    <div class="input-group">
+        <mat-form-field appearance="fill">
+            <mat-label>Internal Dialog Message</mat-label>
+            <input matInput [(ngModel)]="dialogInternalMessage" (input)="sendLiveUpdateToParent()">
+        </mat-form-field>
+    </div>
+    <div class="button-group">
+        <button mat-raised-button (click)="incrementCount()">Increment Count</button>
+        <button mat-raised-button (click)="decrementCount()">Decrement Count</button>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="closeDialog('Cancel')">Cancel</button>
+    <button mat-raised-button color="primary" (click)="closeDialog('Confirmed')">Confirm</button>
+</mat-dialog-actions>

@@ -1,0 +1,41 @@
+<!-- src/app/parent-component/parent.component.html -->
+<div class="parent-container">
+  <h2>Parent Component</h2>
+
+  <div class="button-group">
+    <button mat-raised-button color="primary" (click)="openMyDialog()">Open My Dialog</button>
+    <button mat-raised-button color="warn" (click)="closeDialogFromParent()" [disabled]="!dialogRef">Close Dialog from Parent</button>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <h3>Send Dynamic Data to Dialog</h3>
+  <div class="input-group">
+    <mat-form-field appearance="fill">
+      <mat-label>Message</mat-label>
+      <input matInput [(ngModel)]="dynamicUpdateMessage">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Count</mat-label>
+      <input matInput type="number" [(ngModel)]="dynamicUpdateCount">
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="sendDynamicDataToDialog()" [disabled]="!dialogRef">Send Data</button>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <h3>Trigger Actions in Dialog</h3>
+  <div class="button-group">
+    <button mat-raised-button (click)="triggerDialogAction('resetCount')" [disabled]="!dialogRef">Trigger: Reset Count</button>
+    <button mat-raised-button (click)="triggerDialogAction('logStatus')" [disabled]="!dialogRef">Trigger: Log Status</button>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <h3>Dialog Status & Results</h3>
+  <p><strong>Live Status from Dialog:</strong> {{ dialogLiveStatus }}</p>
+  <div *ngIf="dialogResult" class="dialog-result-box">
+    <h4>Dialog Closed Result:</h4>
+    <pre>{{ dialogResult | json }}</pre>
+  </div>
+</div>

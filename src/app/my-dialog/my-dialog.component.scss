@@ -1,0 +1,25 @@
+.input-group {
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.input-group mat-form-field {
+  flex: 1;
+  min-width: 180px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+mat-divider {
+  margin: 20px 0;
+}
